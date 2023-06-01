@@ -15,8 +15,8 @@ with branches for each Chapter.
 - Install Firefox
 - Install Git
 - Install Python 3.11 from [Python.org](https://www.python.org/downloads/)
-- Install pipenv (pip3 install pipenv)
-- pipenv install django selenium (latest versions which are django 4.2.1, selenium 4.9.1)
+- Install pipenv (`pip3 install pipenv`)
+- `pipenv install django selenium` (latest versions which are django 4.2.1, selenium 4.9.1)
 - Download [Geckodriver](https://github.com/mozilla/geckodriver/releases) and move to /usr/local/bin/
 
 ## [Chapter 01: Getting Django Set Up Using a Functional Test](https://www.obeythetestinggoat.com/book/chapter_01.html)
@@ -35,3 +35,5 @@ with branches for each Chapter.
 ## [Chapter 02: Extending Our Functional Test Using the unittest Module](https://www.obeythetestinggoat.com/book/chapter_02_unittest.html)
 
 No code changes required.
+
+## [Chapter 03: Testing a Simple Home Page with Unit Tests](https://www.obeythetestinggoat.com/book/chapter_unit_test_first_view.html)
