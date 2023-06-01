@@ -32,3 +32,6 @@ with branches for each Chapter.
 ~~`django-admin.py startproject superlists .`~~  
 `django-admin startproject superlists .`
 
+## [Chapter 02: Extending Our Functional Test Using the unittest Module](https://www.obeythetestinggoat.com/book/chapter_02_unittest.html)
+
+No code changes required.
