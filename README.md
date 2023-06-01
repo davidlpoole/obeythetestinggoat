@@ -37,3 +37,9 @@ with branches for each Chapter.
 No code changes required.
 
 ## [Chapter 03: Testing a Simple Home Page with Unit Tests](https://www.obeythetestinggoat.com/book/chapter_unit_test_first_view.html)
+
+### [urls.py](https://www.obeythetestinggoat.com/book/chapter_unit_test_first_view.html#_urls_py)
+
+*superlists/urls.py*  
+~~`url(r'^$', views.home_page, name='home'),`~~  
+`path('', views.home_page, name='home')`
