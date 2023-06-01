@@ -56,6 +56,12 @@ as follows:
 ~~`inputbox = self.browser.find_element_by_id('id_new_item')`~~  
 `input_box = self.browser.find_element(by='id', value='id_new_item')`
 
+~~`table = self.browser.find_element_by_id('id_list_table')`~~  
+`table = self.browser.find_element(by='id', value='id_list_table')`
+
+~~`rows = table.find_elements_by_tag_name('tr')`~~  
+`rows = table.find_elements(by='tag name', value='tr')`
+
 Note, I named the inputbox variable with an underscore to keep it consistent with header_text.  
 Also, there's a .find_elements() method, not used here, which replaces .find_elements_by_id() and
 .find_elements_by_tag_name()
