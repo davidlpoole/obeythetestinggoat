@@ -44,3 +44,12 @@
     Make a minimal code change in the editor.
     Repeat!
 
+## Chapter 5
+
+### build the database migrations based on models
+
+`python manage.py makemigrations`
+
+### apply migrations to db
+
+`python manage.py migrate`

@@ -12,10 +12,10 @@ with branches for each Chapter.
 
 ## [Prerequisites and Assumptions](https://www.obeythetestinggoat.com/book/pre-requisite-installations.html)
 
-- Install Firefox
-- Install Git
+- Install Firefox (as per book)
+- Install Git (as per book)
 - Install Python 3.11 from [Python.org](https://www.python.org/downloads/)
-- Install pipenv (`pip3 install pipenv`)
+- Install pipenv (`pip3 install pipenv`) (_instead of using virtualenv_)
 - `pipenv install django selenium` (latest versions which are django 4.2.1, selenium 4.9.1)
 - Download [Geckodriver](https://github.com/mozilla/geckodriver/releases) and move to /usr/local/bin/
 
@@ -44,11 +44,10 @@ No code changes required.
 ~~`url(r'^$', views.home_page, name='home'),`~~  
 `path('', views.home_page, name='home')`
 
-## Chapter 04:
+## [Chapter 04: What Are We Doing with All These Tests? (And, Refactoring)](https://www.obeythetestinggoat.com/book/chapter_philosophy_and_refactoring.html)
 
-The .find_element_by_id() and .find_element_by_tag_name() methods have been consolidated:
-.find_element(by=['id'|'tag name'], value='id|name')  
-as follows:
+The `.find_element_by_id()` and `.find_element_by_tag_name()` methods need to be replaced with:  
+`.find_element(by=['id'|'tag name'], value='id|name')` as follows:
 
 ~~`header_text = self.browser.find_element_by_tag_name('h1').text`~~   
 `header_text = self.browser.find_element(by='tag name', value='h1').text`
@@ -62,6 +61,12 @@ as follows:
 ~~`rows = table.find_elements_by_tag_name('tr')`~~  
 `rows = table.find_elements(by='tag name', value='tr')`
 
-Note, I named the inputbox variable with an underscore to keep it consistent with header_text.  
-Also, there's a .find_elements() method, not used here, which replaces .find_elements_by_id() and
-.find_elements_by_tag_name()
+Note, I named the `inputbox` variable with an underscore `input_box` to keep it consistent with the
+previous `header_text`
+variable.  
+Also, there's a `.find_elements()` method, not used here, which can be used in place of `.find_elements_by_id()` and
+`.find_elements_by_tag_name()`
+
+## [Chapter 05: Saving User Input: Testing the Database](https://www.obeythetestinggoat.com/book/chapter_post_and_database.html)
+
+No code changes required, except for `.find_elements_by_id()` as per chapter 04 above
