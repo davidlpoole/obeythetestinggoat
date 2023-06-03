@@ -73,3 +73,7 @@
 ### Undo last git commit but keep changes (changes become un-staged)
 
 `git reset HEAD^`
+
+### Use grep to summarise a file to classes and functions
+
+`grep -E "class|def" lists/tests.py`
