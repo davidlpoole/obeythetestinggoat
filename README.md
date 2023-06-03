@@ -77,4 +77,12 @@ No code changes required.
 
 ## [Chapter 07: Working Incrementally](https://www.obeythetestinggoat.com/book/chapter_working_incrementally.html)
 
-No code changes required.
+### [Biting the Bullet: Adjusting Our Models](https://www.obeythetestinggoat.com/book/chapter_working_incrementally.html#_biting_the_bullet_adjusting_our_models)
+
+In the second code block of the sub-section 'A Foreign Key Relationship', `on_delete` is now a required named parameter
+to `models.ForeignKey()`.  
+~~`list = models.ForeignKey(List, default=None)`~~  
+`list = models.ForeignKey(List, default=None, on_delete=models.CASCADE)`  
+I've used `models.CASCADE` which will delete the `item` when it's `list` is deleted.  
+See the other available options in
+the [Django 4.2 docs: ForeignKey.on_delete](https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.ForeignKey.on_delete)
