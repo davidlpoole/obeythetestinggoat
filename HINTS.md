@@ -67,3 +67,9 @@
 ### To run the unit tests
 
 `python manage.py test lists`
+
+## Chapter 07
+
+### Undo last git commit but keep changes (changes become un-staged)
+
+`git reset HEAD^`

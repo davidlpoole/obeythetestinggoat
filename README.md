@@ -73,3 +73,8 @@ No code changes required, except for `.find_elements_by_id()` as per chapter 04 
 
 ## [Chapter 06: Improving Functional Tests: Ensuring Isolation and Removing Voodoo Sleeps](https://www.obeythetestinggoat.com/book/chapter_explicit_waits_1.html)
 
+No code changes required.
+
+## [Chapter 07: Working Incrementally](https://www.obeythetestinggoat.com/book/chapter_working_incrementally.html)
+
+No code changes required.
