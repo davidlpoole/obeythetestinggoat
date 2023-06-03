@@ -1,6 +1,6 @@
 # Useful Commands and Concepts
 
-## Chapter 1
+## Chapter 01
 
 ### Initialise a Django project
 
@@ -10,7 +10,7 @@
 
 `python manage.py runserver`
 
-## Chapter 2
+## Chapter 02
 
 ### View changes since last commit
 
@@ -24,7 +24,7 @@
 
 `git reset HEAD~`
 
-## Chapter 3
+## Chapter 03
 
 ### Create an app in the Django project
 
@@ -44,7 +44,7 @@
     Make a minimal code change in the editor.
     Repeat!
 
-## Chapter 5
+## Chapter 05
 
 ### build the database migrations based on models
 
@@ -53,3 +53,17 @@
 ### apply migrations to db
 
 `python manage.py migrate`
+
+## Chapter 06
+
+### To run all tests
+
+`python manage.py test`
+
+### To run the functional tests
+
+`python manage.py test functional_tests`
+
+### To run the unit tests
+
+`python manage.py test lists`

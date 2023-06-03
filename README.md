@@ -70,3 +70,6 @@ Also, there's a `.find_elements()` method, not used here, which can be used in p
 ## [Chapter 05: Saving User Input: Testing the Database](https://www.obeythetestinggoat.com/book/chapter_post_and_database.html)
 
 No code changes required, except for `.find_elements_by_id()` as per chapter 04 above
+
+## [Chapter 06: Improving Functional Tests: Ensuring Isolation and Removing Voodoo Sleeps](https://www.obeythetestinggoat.com/book/chapter_explicit_waits_1.html)
+
