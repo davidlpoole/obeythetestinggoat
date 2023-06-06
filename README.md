@@ -127,3 +127,11 @@ expressions, and is not susceptible to this problem, so we can skip this section
 */superlists/urls.py:*  
 ~~`url(r'^lists/(\d+)/add_item$', views.add_item, name='add_item'),`~~  
 `path("lists/<int:list_id>/add_item", views.add_item, name='add_item'),`
+
+## [Chapter 08: Prettification: Layout and Styling, and What to Test About It](https://www.obeythetestinggoat.com/book/chapter_prettification.html)
+
+No code changes required.
+
+## Chapters 09, 10, 11: Staging site, Production-Ready Deployment, Automating Deployment with Fabric
+
+I skimmed through these chapters, will follow a newer tutorial on deployment later.
