@@ -136,7 +136,7 @@ No code changes required.
 
 I skimmed through these chapters, will follow a newer tutorial on deployment later.
 
-## Chapter 12
+## [Chapter 12: Splitting Our Tests into Multiple Files, and a Generic Wait Helper](https://www.obeythetestinggoat.com/book/chapter_organising_test_files.html)
 
 > #### Set of supported locator strategies (for `find_element()` and `find_elements()`):
 > - "id"
@@ -151,3 +151,11 @@ I skimmed through these chapters, will follow a newer tutorial on deployment lat
 *functional_tests/test_list_item_validation.py:*  
 ~~`self.browser.find_element_by_css_selector('.has-error').text,`~~  
 `self.browser.find_element(by='css selector', value='.has-error'),`
+
+## [Chapter 13: Validation at the Database Layer](https://www.obeythetestinggoat.com/book/chapter_database_layer_validation.html)
+
+No code changes required.
+
+## [Chapter 14: A Simple Form](https://www.obeythetestinggoat.com/book/chapter_simple_form.html)
+
+No code changes required.

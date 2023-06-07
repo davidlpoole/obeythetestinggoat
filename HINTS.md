@@ -89,3 +89,11 @@ Just as you use multiple files to hold your application code, you should split y
 - You probably want a separate test file for each tested source code file. For Django, that’s
   typically `test_models.py`, `test_views.py`, and `test_forms.py`.
 - Have at least a placeholder test for every function and class.
+
+## Chapter 14
+
+For more complex forms:
+
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [django-floppyforms](https://django-floppyforms.readthedocs.io/en/latest/)
+
