@@ -1,5 +1,3 @@
-from unittest import skip
-
 from selenium.webdriver import Keys
 
 from functional_tests.base import FunctionalTest
