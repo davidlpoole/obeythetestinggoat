@@ -135,3 +135,19 @@ No code changes required.
 ## Chapters 09, 10, 11: Staging site, Production-Ready Deployment, Automating Deployment with Fabric
 
 I skimmed through these chapters, will follow a newer tutorial on deployment later.
+
+## Chapter 12
+
+> #### Set of supported locator strategies (for `find_element()` and `find_elements()`):
+> - "id"
+> - "xpath"
+> - "link text"
+> - "partial link text"
+> - "name"
+> - "tag name"
+> - "class name"
+> - "css selector"
+
+*functional_tests/test_list_item_validation.py:*  
+~~`self.browser.find_element_by_css_selector('.has-error').text,`~~  
+`self.browser.find_element(by='css selector', value='.has-error'),`

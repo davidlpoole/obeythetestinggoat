@@ -1,5 +1,7 @@
 # Useful Commands and Concepts
 
+*Some of these are from the book, others are my own notes.*
+
 ## Chapter 01
 
 ### Initialise a Django project
@@ -77,3 +79,13 @@ $`git reset HEAD^`
 ### Use grep to summarise a file to classes and functions
 
 $`grep -E "class|def" lists/tests.py`
+
+## Chapter 12: Tips on Organising Tests and Refactoring
+
+Just as you use multiple files to hold your application code, you should split your tests out into multiple files.
+
+- For functional tests, group them into tests for a particular feature or user story.
+- For unit tests, use a folder called tests, with an `__init__.py`
+- You probably want a separate test file for each tested source code file. For Django, that’s
+  typically `test_models.py`, `test_views.py`, and `test_forms.py`.
+- Have at least a placeholder test for every function and class.
