@@ -134,7 +134,10 @@ No code changes required.
 
 ## Chapters 09, 10, 11: Staging site, Production-Ready Deployment, Automating Deployment with Fabric
 
-I skimmed through these chapters, will follow a newer tutorial on deployment later.
+I skimmed through these chapters, and ended up [deploying my app](http://davidpoole.pythonanywhere.com/)
+on [PythonAnywhere](https://www.pythonanywhere.com), which was probably a lot simpler - I just started with
+PythonAnywhere's Django template and replaced the code with the code from this repo. There was a slightly different
+process for getting the environment variables set up, but I followed the instructions in PA's help, and got it working.
 
 ## [Chapter 12: Splitting Our Tests into Multiple Files, and a Generic Wait Helper](https://www.obeythetestinggoat.com/book/chapter_organising_test_files.html)
 
