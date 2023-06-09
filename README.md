@@ -1,5 +1,9 @@
 # Obeying The Testing Goat in 2023... with the latest versions of Python (3.11), Django (4.2), and Selenium (4.9)
 
+## Live preview
+
+The main branch is available to view at: http://davidpoole.pythonanywhere.com/
+
 ## About this project
 
 The goal of this project is to follow along with the tutorials in the book:
@@ -160,5 +164,9 @@ process for getting the environment variables set up, but I followed the instruc
 No code changes required.
 
 ## [Chapter 14: A Simple Form](https://www.obeythetestinggoat.com/book/chapter_simple_form.html)
+
+No code changes required.
+
+## [Chapter 15: More Advanced Forms](https://www.obeythetestinggoat.com/book/chapter_advanced_forms.html)
 
 No code changes required.
