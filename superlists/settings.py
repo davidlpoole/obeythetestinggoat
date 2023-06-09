@@ -27,6 +27,14 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
     ALLOWED_HOSTS = [os.environ['SITENAME']]
+
+    # default static files settings for PythonAnywhere.
+    # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
+    MEDIA_ROOT = '/home/davidpoole/obey/superlists/media'
+    MEDIA_URL = '/media/'
+    STATIC_ROOT = '/home/davidpoole/obey/superlists/static'
+    STATIC_URL = '/static/'
+
 else:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
@@ -35,6 +43,12 @@ else:
     SECRET_KEY = 'django-insecure-h$zs=n6!knsxvd$l)6+232*ohqpvw62a7v@ic2jt*pf!+qp%%='
 
     ALLOWED_HOSTS = []  # blank = all allowed
+
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+    STATIC_URL = 'static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Application definition
 
@@ -121,12 +135,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-# default static files settings for PythonAnywhere.
-# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = '/home/davidpoole/obey/superlists/media'
-MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/davidpoole/obey/superlists/static'
-STATIC_URL = '/static/'
