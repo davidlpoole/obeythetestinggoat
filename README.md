@@ -170,3 +170,10 @@ No code changes required.
 ## [Chapter 15: More Advanced Forms](https://www.obeythetestinggoat.com/book/chapter_advanced_forms.html)
 
 No code changes required.
+
+## [Chapter 16: Dipping Our Toes, Very Tentatively, into JavaScript](https://www.obeythetestinggoat.com/book/chapter_javascript.html)
+
+To download the QUnit and jQuery files:    
+`curl -o qunit-2.19.4.css 'https://code.jquery.com/qunit/qunit-2.19.4.css'`  
+`curl -o qunit-2.19.4.js 'https://code.jquery.com/qunit/qunit-2.19.4.js'`  
+`curl -o jquery-3.7.0.min.js 'https://code.jquery.com/jquery-3.7.0.min.js'`
