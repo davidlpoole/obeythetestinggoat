@@ -10,11 +10,11 @@
 </head>
 
 <body>
-<div class="code light">
+<div class="container">
     <div class="header" id="header">
         {% block header_text %}{% endblock %}
     </div>
-    <div>
+    <div class="form">
         <form method="POST" action="{% block form_action %}{% endblock %}">
             {% csrf_token %}
             {{ form.text }}
@@ -25,16 +25,17 @@
             {% endif %}
         </form>
     </div>
-    <div>
+    <div class="table">
         {% block table %}{% endblock %}
     </div>
 </div>
 
 <div class="footer">
-    © davidlpoole
-    <script>document.write(new Date().getFullYear())</script>
-    <a href="https://github.com/davidlpoole/">//=> my GitHub profile</a>
-    <a href="https://github.com/davidlpoole/obeythetestinggoat">//=> this specific repo</a>
+    <div class="f_item">© davidlpoole
+        <script>document.write(new Date().getFullYear())</script>
+    </div>
+    <div class="f_item"><a href="https://github.com/davidlpoole/">//=> my GitHub profile</a></div>
+    <div class="f_item"><a href="https://github.com/davidlpoole/obeythetestinggoat">//=> this specific repo</a></div>
 </div>
 
 
