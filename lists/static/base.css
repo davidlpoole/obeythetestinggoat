@@ -1,7 +1,20 @@
 body {
     font: 20px/1.5em "Fira Code";
     font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum";
-    margin: 3em
+    /*margin: 3em*/
+    margin-left: 1em;
+    margin-right: 1em;
+    min-height: 96vh;
+    min-width: 98vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+    padding-top: 1em;
+    font-style: italic;
+    font-size: 12px;
 }
 
 .code {
@@ -55,6 +68,11 @@ td {
     border-bottom-width: thin;
 }
 
+.gh {
+    max-width: 2%;
+    max-height: 2%;
+}
+
 input[type="text"] {
     font: inherit;
     width: 98%;
@@ -74,6 +92,16 @@ input[type=text]:focus {
     outline: none;
     border: 1px solid;
     /*color: #c33;*/
+}
+
+a {
+    color: #c33;
+    text-decoration-line: none;
+}
+
+a:hover {
+    color: #f50202;
+    text-decoration-line: none;
 }
 
 .fade {
