@@ -4,41 +4,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <title>To-Do lists</title>
-    <link href="/static/base.css" rel="stylesheet">
+    <!-- HTML
+        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="/static/Fira_Code_v6.2/fira_code.css">
+    <link rel="stylesheet" href="/static/base.css">
 </head>
+
 <body>
-<div class="container justify-content-center">
-    <div class="row text-center pt-5 pb-2">
-        <div class="col"></div>
-        <div class="col-md-8">
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                <h1 class="display-2">{% block header_text %}{% endblock %}</h1>
-                <form method="POST" action="{% block form_action %}{% endblock %}">
-                    {% csrf_token %}
-                    {{ form.text }}
-                    {% if form.errors %}
-                        <div class="form-group has-error">
-                            <span class="help-block">{{ form.text.errors }}</span>
-                        </div>
-                    {% endif %}
-
-                </form>
-            </div>
-        </div>
-        <div class="col"></div>
-
+<div class="code light">
+    <div class="header">
+        {% block header_text %}{% endblock %}
     </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-md-6">
-            {% block table %}{% endblock %}
-        </div>
-        <div class="col"></div>
+    <div>
+        <form method="POST" action="{% block form_action %}{% endblock %}">
+            {% csrf_token %}
+            {{ form.text }}
+            {% if form.errors %}
+                <div class="form-group has-error">
+                    <div class="help-block">{{ form.text.errors }}</div>
+                </div>
+            {% endif %}
+        </form>
     </div>
-
+    <div>
+        {% block table %}{% endblock %}
+    </div>
 </div>
+
+
 <script src="/static/jquery-3.7.0.min.js"></script>
 <script src="/static/lists.js"></script>
 
