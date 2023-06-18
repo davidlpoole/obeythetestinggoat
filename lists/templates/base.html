@@ -12,9 +12,21 @@
 
 <body>
 <div class="container">
+
+    <nav class="navbar" role="navigation">
+        <a class="brand" href="/">Superlists</a>
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <label for="email">Enter email to log in:
+                <input class="form-control" name="email" type="text" placeholder="edith@example.com"/>
+            </label>
+        </form>
+    </nav>
+
     <div class="header" id="header">
         {% block header_text %}{% endblock %}
     </div>
+
     <div class="form">
         <form method="POST" action="{% block form_action %}{% endblock %}">
             {% csrf_token %}

@@ -16,6 +16,13 @@ body {
 
 }
 
+.brand {
+    font-size: 28px;
+}
+
+.navbar {
+}
+
 .header {
     /*color: #860303;*/
     font-size: 24px;
