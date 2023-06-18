@@ -1,4 +1,3 @@
-from selenium import webdriver
 from selenium.webdriver import Keys
 
 from functional_tests.base import FunctionalTest
@@ -20,7 +19,7 @@ class NewVisitorTest(FunctionalTest):
         input_box = self.get_item_input_box()
         self.assertEqual(
             input_box.get_attribute('placeholder'),
-            'Enter a to-do item'
+            'Buy milk'
         )
 
         # She types "Buy peacock feathers" into a text box (Edith's hobby
@@ -61,7 +60,7 @@ class NewVisitorTest(FunctionalTest):
         # * We use a new browser session to make sure that no information
         # * of Edith's is coming through from cookies, etc.
         self.browser.quit()
-        self.browser = webdriver.Firefox()
+        self.setUp()
 
         # Francis visits the home page, There is no sign of Edith's
         # list
