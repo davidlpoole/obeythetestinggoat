@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>To-Do lists</title>
-    <link rel="stylesheet" href="/static/Fira_Code_v6.2/fira_code.css">
-    <link rel="stylesheet" href="/static/base.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Fira_Code_v6.2/fira_code.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
     <div class="form">
         <form method="POST" action="{% block form_action %}{% endblock %}">
             {% csrf_token %}
-            {{ form.text }}
+            <label for="text">Enter a to-do item: {{ form.text }}</label>
             {% if form.errors %}
                 <div class="form-group has-error">
                     <div class="help-block">{{ form.text.errors }}</div>
@@ -31,11 +32,11 @@
 </div>
 
 <div class="footer">
-    <div class="f_item">© davidlpoole
+    <div class="f_item">🤙 davidlpoole
         <script>document.write(new Date().getFullYear())</script>
     </div>
-    <div class="f_item"><a href="https://github.com/davidlpoole/">//=> my GitHub profile</a></div>
-    <div class="f_item"><a href="https://github.com/davidlpoole/obeythetestinggoat">//=> this specific repo</a></div>
+    <div class="f_item"><a href="https://github.com/davidlpoole/">👉 my GitHub profile</a></div>
+    <div class="f_item"><a href="https://github.com/davidlpoole/obeythetestinggoat">👉 this specific repo</a></div>
 </div>
 
 
