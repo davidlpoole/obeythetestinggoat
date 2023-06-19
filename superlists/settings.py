@@ -36,10 +36,8 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     STATIC_URL = '/static/'
 
 else:
-    # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
 
-    # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'django-insecure-h$zs=n6!knsxvd$l)6+232*ohqpvw62a7v@ic2jt*pf!+qp%%='
 
     ALLOWED_HOSTS = []  # blank = all allowed
@@ -48,6 +46,12 @@ else:
     # https://docs.djangoproject.com/en/4.2/howto/static-files/
     STATIC_URL = 'static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = '18ahewson@gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
 
 # Application definition
 
@@ -63,6 +67,9 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = [
+    'accounts.authenticate.PasswordlessAuthenticationBackend'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

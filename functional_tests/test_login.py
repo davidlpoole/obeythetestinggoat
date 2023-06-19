@@ -30,7 +30,7 @@ class LoginTest(FunctionalTest):
         self.assertIn(TEST_EMAIL, email.to)
         self.assertEqual(email.subject, SUBJECT)
 
-        # It has a url link in it
+        # It has a URL link in it
         self.assertIn('Use this link to log in', email.body)
         url_search = re.search(r'http://.+/.+$', email.body)
         if not url_search:
