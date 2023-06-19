@@ -177,3 +177,26 @@ To download the QUnit and jQuery files:
 `curl -o qunit-2.19.4.css 'https://code.jquery.com/qunit/qunit-2.19.4.css'`  
 `curl -o qunit-2.19.4.js 'https://code.jquery.com/qunit/qunit-2.19.4.js'`  
 `curl -o jquery-3.7.0.min.js 'https://code.jquery.com/jquery-3.7.0.min.js'`
+
+## [Chapter 19: Using Mocks to Test External Dependencies or Reduce Duplication](https://www.obeythetestinggoat.com/book/chapter_mocking.html)
+
+### [De-spiking Our Custom Authentication Backend](https://www.obeythetestinggoat.com/book/chapter_mocking.html#_de_spiking_our_custom_authentication_backend)
+
+Additional parameter required in `authenticate()`
+
+*/accounts/authenticate.py:*  
+~~`def authenticate(self, uid):`~~  
+`def authenticate(self, request, uid):`
+
+And edit the 3x `AuthenticateTest(TestCase)`'s in */accounts/tests/test_authentication.py:*  
+~~`PasswordlessAuthenticationBackend().authenticate('no-such-token')`~~  
+`PasswordlessAuthenticationBackend().authenticate(request=None, uid='no-such-token')`
+
+### [Finishing Off Our FT, Testing Logout](https://www.obeythetestinggoat.com/book/chapter_mocking.html#_finishing_off_our_ft_testing_logout)
+
+*accounts/urls.py:*  
+~~`from django.contrib.auth.views import logout`~~  
+`from django.contrib.auth.views import LogoutView`
+
+~~`url(r'^logout$', logout, {'next_page': '/'}, name='logout'),`~~  
+`path('logout', LogoutView.as_view(next_page='/'), name='logout'),`  
