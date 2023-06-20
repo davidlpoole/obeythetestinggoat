@@ -97,3 +97,26 @@ For more complex forms:
 - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 - [django-floppyforms](https://django-floppyforms.readthedocs.io/en/latest/)
 
+## Chapter 21
+
+### [Setting up SSH key for GitHub on server](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac)
+
+`ssh-keygen -t ed25519 -C "your_email@example.com"`  
+`eval "$(ssh-agent -s)"`
+`nano ~/.ssh/config`
+
+Add this to the config file:
+
+```
+Host github.com
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+`ssh-add ~/.ssh/id_ed25519`  
+`cat ~/.ssh/id_ed25519.pub`  
+copy this to GitHub settings.
+
+### Running the functional tests against the staging server
+
+`STAGING_SERVER=davidpoole.pythonanywhere.com python manage.py test functional_tests`

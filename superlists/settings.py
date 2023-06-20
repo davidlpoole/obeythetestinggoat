@@ -30,9 +30,9 @@ if "DJANGO_DEBUG_FALSE" in os.environ:
 
     # default static files settings for PythonAnywhere.
     # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-    MEDIA_ROOT = "/home/davidpoole/obey/superlists/media"
+    MEDIA_ROOT = BASE_DIR / "/superlists/media"
     MEDIA_URL = "/media/"
-    STATIC_ROOT = "/home/davidpoole/obey/superlists/static"
+    STATIC_ROOT = BASE_DIR / "superlists/static"
     STATIC_URL = "/static/"
 
 else:
@@ -47,14 +47,14 @@ else:
     STATIC_URL = "static/"
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-    EMAIL_HOST = "smtp.gmail.com"
-    EMAIL_HOST_USER = "18ahewson@gmail.com"
-    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
+# Email setup
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "18ahewson@gmail.com"
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
-
 INSTALLED_APPS = [
     # 'django.contrib.admin',
     "django.contrib.auth",
