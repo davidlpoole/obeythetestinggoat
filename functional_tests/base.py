@@ -46,3 +46,13 @@ class FunctionalTest(StaticLiveServerTestCase):
                 if time.time() - start_time > MAX_WAIT:
                     raise e
                 time.sleep(0.5)
+
+    def wait_to_be_logged_in(self, email):
+        self.wait_for(lambda: self.browser.find_element("link text", "Log out"))
+        navbar = self.browser.find_element("css selector", ".navbar")
+        self.assertIn(email, navbar.text)
+
+    def wait_to_be_logged_out(self, email):
+        self.wait_for(lambda: self.browser.find_element(by="name", value="email"))
+        navbar = self.browser.find_element(by="css selector", value=".navbar")
+        self.assertNotIn(email, navbar.text)
