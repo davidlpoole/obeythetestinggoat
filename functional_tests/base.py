@@ -27,8 +27,6 @@ def wait(fn):
     return modified_fn
 
 
-
-
 class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self) -> None:
         options = Options()
@@ -69,6 +67,15 @@ class FunctionalTest(StaticLiveServerTestCase):
         self.browser.find_element(by="name", value="email")
         navbar = self.browser.find_element(by="css selector", value=".navbar")
         self.assertNotIn(email, navbar.text)
+
+    def add_list_item(self, item_text):
+        num_rows = len(
+            self.browser.find_elements(by="css selector", value="#id_list_table tr")
+        )
+        self.get_item_input_box().send_keys(item_text)
+        self.get_item_input_box().send_keys(Keys.ENTER)
+        item_number = num_rows + 1
+        self.wait_for_row_in_list_table(f"{item_number}: {item_text}")
 
     def wait_for_email(self, test_email, subject):
         if not self.staging_server:

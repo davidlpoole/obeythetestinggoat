@@ -3,8 +3,8 @@ from selenium.webdriver.common.keys import Keys
 
 from .base import FunctionalTest
 
-class LoginTest(FunctionalTest):
 
+class LoginTest(FunctionalTest):
     def test_can_get_email_link_to_log_in(self):
         # Edith goes to the superlists site
         # and notices a "Log in" section in the navbar for the first time
