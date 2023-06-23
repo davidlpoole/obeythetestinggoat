@@ -16,7 +16,7 @@
         <ul class="nav">
             <li class="brand"><a href="/">Superlists</a></li>
             <li>🤌</li>
-            <li class="header">{% block header_text %}{% endblock %}</li>
+            <li class="header" id="id_header">{% block header_text %}{% endblock %}</li>
             <li class="user">
                 <div class="user">
                     {% if user.email %}
@@ -117,6 +117,13 @@
             $("#id_close_button").hide();
             $("#id_login_button").show();
             {#$(".login-form").show();#}
+            {#$("#id_email_input").focus()#}
+        });
+        $("#id_email_input").focusout(function () {
+            {#$(".messages").hide();#}
+            {#$("#id_close_button").hide();#}
+            $("#id_login_button").show();
+            $(".login-form").hide();
             {#$("#id_email_input").focus()#}
         });
     });

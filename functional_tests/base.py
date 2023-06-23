@@ -58,7 +58,7 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     @wait
     def wait_to_be_logged_in(self, email):
-        self.browser.find_element("link text", "Log out")
+        self.browser.find_element("link text", "Logout")
         navbar = self.browser.find_element("css selector", ".navbar")
         self.assertIn(email, navbar.text)
 

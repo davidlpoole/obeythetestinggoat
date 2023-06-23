@@ -11,7 +11,7 @@ class NewVisitorTest(FunctionalTest):
 
         # She notices the page title and header mention to-do lists
         self.assertIn("To-Do", self.browser.title)
-        header_text = self.browser.find_element(by="id", value="header").text
+        header_text = self.browser.find_element(by="id", value="id_header").text
         self.assertIn("To-Do", header_text)
 
         # She is invited to enter a to-do item straight away

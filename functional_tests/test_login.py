@@ -15,6 +15,7 @@ class LoginTest(FunctionalTest):
             test_email = "edith@example.com"
 
         self.browser.get(self.live_server_url)
+        self.browser.find_element(by="id", value="id_login_button").click()
         self.browser.find_element("name", "email").send_keys(test_email)
         self.browser.find_element("name", "email").send_keys(Keys.ENTER)
 
@@ -42,7 +43,7 @@ class LoginTest(FunctionalTest):
         self.wait_to_be_logged_in(email=test_email)
 
         # Now she logs out
-        self.browser.find_element(by="link text", value="Log out").click()
+        self.browser.find_element(by="link text", value="Logout").click()
 
         # She is logged out
         self.wait_to_be_logged_out(email=test_email)

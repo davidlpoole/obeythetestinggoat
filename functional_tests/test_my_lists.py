@@ -14,6 +14,7 @@ User = get_user_model()
 class MyListTest(FunctionalTest):
     def quick_login(self):
         self.browser.get(self.live_server_url)
+        self.browser.find_element(by="id", value="id_login_button").click()
         self.browser.find_element("name", "email").send_keys(self.test_email)
         self.browser.find_element("name", "email").send_keys(Keys.ENTER)
         self.wait_for(
@@ -71,7 +72,7 @@ class MyListTest(FunctionalTest):
         )
 
         # She logs out. The "My lists" option disappears
-        self.browser.find_element(by="link text", value="Log out").click()
+        self.browser.find_element(by="link text", value="Logout").click()
         self.wait_for(
             lambda: self.assertEqual(
                 self.browser.find_elements_by_link_text("My lists"), []
