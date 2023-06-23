@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block table %}
-    <table class="table" id="id_list_table">
+    <table class="list_table" id="id_list_table">
         {% for item in list.item_set.all %}
             <tr {% if forloop.counter == list.item_set.count and not form.errors %} class="fade" {% endif %}>
                 <td class="counter">

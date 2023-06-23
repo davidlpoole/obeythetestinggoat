@@ -4,50 +4,65 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>To-Do lists</title>
+    <title>Super To-Do Lists</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'Fira_Code_v6.2/fira_code.css' %}">
     <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'Fira_Code_v6.2/fira_code.css' %}">
 </head>
 
 <body>
-<div class="container">
-
+<div class="main">
     <nav class="navbar" role="navigation">
-        <a class="brand" href="/">Superlists</a>
-        {% if user.email %}
-            <ul>
-                <li>Logged in as {{ user.email }}</li>
-                <li><a href="{% url 'logout' %}">Log out</a></li>
-            </ul>
-        {% else %}
-            <form class="form-login" method="POST" action="{% url 'send_login_email' %}">
-                {% csrf_token %}
-                <label for="email">Enter email to log in:
-                    <input class="form-control" name="email" type="text" placeholder="user@example.com"/>
-                </label>
-            </form>
-        {% endif %}
-        {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    {% if message.level_tag == 'success' %}
-                        <div class="message message-success">
-                            {{ message }}
+        <ul class="nav">
+            <li class="brand"><a href="/">Superlists</a></li>
+            <li>🤌</li>
+            <li class="header">{% block header_text %}{% endblock %}</li>
+            <li class="user">
+                <div class="user">
+                    {% if user.email %}
+                        <div class="already-logged-in">
+                            <ul>
+                                {{ user.email }} <a href="{% url 'logout' %}">Logout</a>
+                            </ul>
                         </div>
                     {% else %}
-                        <div class="message message-warning">
-                            {{ message }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
-    </nav>
 
-    <div class="header" id="header">
-        {% block header_text %}{% endblock %}
-    </div>
+                        <div class="login-form">
+                            <form id="id_login_form" class="form-login" method="POST"
+                                  action="{% url 'send_login_email' %}">
+                                {% csrf_token %}
+                                <label for="email">Enter email to log in:
+                                    <input class="form-control" id="id_email_input" name="email" type="text"
+                                           placeholder="user@example.com"/>
+                                </label>
+                            </form>
+                        </div>
+
+                    {% endif %}
+                    {% if not messages and not user.email%}
+                        <div id="id_login_button"><a href="#">Login</a></div>
+                    {% elif messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                {% if message.level_tag == 'success' %}
+                                    <div class="message message-success">
+                                        {{ message }}
+                                    </div>
+                                {% else %}
+                                    <div class="message message-warning">
+                                        {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+{#                        <a id="id_close_button" href="#">close</a>#}
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+
+
+    </nav>
 
     <div class="form">
         <form class="form-todo" method="POST" action="{% block form_action %}{% endblock %}">
@@ -64,25 +79,50 @@
         {% block table %}{% endblock %}
     </div>
 </div>
-
-<div class="footer">
-    <div class="f_item">🤙 davidlpoole
-        <script>document.write(new Date().getFullYear())</script>
+<footer>
+    <div class="f_left">
+        <div class="f_item">
+            🤙 davidlpoole
+            <script>document.write(new Date().getFullYear())</script>
+        </div>
     </div>
-    <div class="f_item"><a href="https://github.com/davidlpoole/">👉 my GitHub profile</a></div>
-    <div class="f_item"><a href="https://github.com/davidlpoole/obeythetestinggoat">👉 this specific repo</a></div>
-</div>
-
+    <div class="f_right">
+        <div class="f_item">
+            <a href="https://github.com/davidlpoole/">👉 Go to my GitHub profile </a>
+        </div>
+        <div class="f_item">
+            <a href="https://github.com/davidlpoole/obeythetestinggoat">👉 Go to this specific repo </a>
+        </div>
+    </div>
+</footer>
+</body>
 
 <script src="/static/jquery-3.7.0.min.js"></script>
 <script src="/static/lists.js"></script>
-
 <script>
-
     $(document).ready(function () {
         window.Superlists.initialize();
     });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#id_login_button").click(function () {
+            $(".login-form").show();
+            $("#id_login_button").hide();
+            $("#id_close_button").show();
+            $("#id_email_input").focus()
+        });
+        $("#id_close_button").click(function () {
+            $(".messages").hide();
+            $("#id_close_button").hide();
+            $("#id_login_button").show();
+            {#$(".login-form").show();#}
+            {#$("#id_email_input").focus()#}
+        });
+    });
+</script>
+<script>
 
 </script>
-</body>
+
 </html>
