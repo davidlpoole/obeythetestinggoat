@@ -22,7 +22,9 @@
                     {% if user.email %}
                         <div class="already-logged-in">
                             <ul>
-                                {{ user.email }} <a href="{% url 'logout' %}">Logout</a>
+                                <li style="display: inline"><a href="{% url 'my_lists' user.email %}">My lists</a></li>
+                                <li style="display: inline">{{ user.email }}</li>
+                                <li style="display: inline"><a href="{% url 'logout' %}">Logout</a></li>
                             </ul>
                         </div>
                     {% else %}
@@ -39,7 +41,7 @@
                         </div>
 
                     {% endif %}
-                    {% if not messages and not user.email%}
+                    {% if not messages and not user.email %}
                         <div id="id_login_button"><a href="#">Login</a></div>
                     {% elif messages %}
                         <div class="messages">
@@ -55,7 +57,7 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-{#                        <a id="id_close_button" href="#">close</a>#}
+                        {#                        <a id="id_close_button" href="#">close</a>#}
                     {% endif %}
                 </div>
             </li>
@@ -63,20 +65,24 @@
 
 
     </nav>
-
     <div class="form">
-        <form class="form-todo" method="POST" action="{% block form_action %}{% endblock %}">
-            {% csrf_token %}
-            <label for="text">Enter a to-do item: {{ form.text }}</label>
-            {% if form.errors %}
-                <div class="form-group has-error">
-                    <div class="help-block">{{ form.text.errors }}</div>
-                </div>
-            {% endif %}
-        </form>
+        {% block list_form %}
+            <form class="form-todo" method="POST" action="{% block form_action %}{% endblock %}">
+                {% csrf_token %}
+                <label for="text">Enter a to-do item: {{ form.text }}</label>
+                {% if form.errors %}
+                    <div class="form-group has-error">
+                        <div class="help-block">{{ form.text.errors }}</div>
+                    </div>
+                {% endif %}
+            </form>
+        {% endblock %}
     </div>
     <div class="table">
         {% block table %}{% endblock %}
+    </div>
+    <div class="extra-content">
+        {% block extra_content %}{% endblock %}
     </div>
 </div>
 <footer>

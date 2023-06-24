@@ -1,8 +1,9 @@
 # Obeying The Testing Goat in 2023... with the latest versions of Python (3.11), Django (4.2), and Selenium (4.9)
 
-## Live preview
+## Live previews
 
-The main branch is available to view at: http://davidpoole.pythonanywhere.com/
+- Latest stable version (main branch) http://davidlpoole.pythonanywhere.com/
+- Latest development version (latest branch) http://davidpoole.pythonanywhere.com/
 
 ## About this project
 
