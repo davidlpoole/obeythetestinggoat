@@ -62,11 +62,11 @@ class MyListTest(FunctionalTest):
         second_list_url = self.browser.current_url
 
         # Under "My lists", her new list appears
-        self.browser.find_element(by="id", value="My lists").click()
+        self.browser.find_element(by="link text", value="My lists").click()
         self.wait_for(
             lambda: self.browser.find_element(by="link text", value="Click cows")
         )
-        self.browser.find_element(by="id", value="Click cows").click()
+        self.browser.find_element(by="link text", value="Click cows").click()
         self.wait_for(
             lambda: self.assertEqual(self.browser.current_url, second_list_url)
         )
@@ -75,6 +75,6 @@ class MyListTest(FunctionalTest):
         self.browser.find_element(by="link text", value="Logout").click()
         self.wait_for(
             lambda: self.assertEqual(
-                self.browser.find_elements_by_link_text("My lists"), []
+                self.browser.find_elements(by="link text", value="My lists"), []
             )
         )
