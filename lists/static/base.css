@@ -32,7 +32,11 @@ ul.nav {
     gap: 12px;
 }
 
-li.user{
+li.nav {
+    display: inline;
+}
+
+li.user {
     display: flex;
     flex-direction: row;
 }
@@ -79,7 +83,11 @@ li.user{
 }
 
 .table {
-    padding: 0px 12px 0px 12px;
+    padding: 0 12px 0 12px;
+}
+
+.extra-content {
+    padding: 12px
 }
 
 input[type="text"] {
@@ -147,9 +155,13 @@ ul {
     margin: 0
 }
 
-table {
-    /*display: flex;*/
-    width: 100%
+ul.list_links {
+    padding-top: 12px;
+}
+
+li.list_link {
+    margin-left: 12px;
+    list-style: circle;
 }
 
 tbody {
@@ -157,7 +169,7 @@ tbody {
 
 td {
     text-align: left;
-    border-bottom: 1px dotted hsl(0deg 0% 0% / 0.2);
+    /*border-bottom: 1px dotted hsl(0deg 0% 0% / 0.2);*/
     /*font-size: 4vw;*/
 }
 

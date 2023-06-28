@@ -10,7 +10,11 @@ def send_login_email(request):
     email = request.POST["email"]
     token = Token.objects.create(email=email)
     url = request.build_absolute_uri(reverse("login") + "?token=" + str(token.uid))
-    message_body = f"Use this link to log in:\n\n{url}"
+    message_body = (
+        f"Here's your personal login link:\n{url}\n\n"
+        f"Use this link whenever you want to sign in, "
+        f"maybe add it to your browser's bookmarks."
+    )
     send_mail(
         "Your login link for Superlists",
         message_body,

@@ -19,6 +19,7 @@ class ItemForm(forms.models.ModelForm):
                     "class": "form-control input-lg",
                     "autofocus": True,
                     "onfocus": "this.select()",
+                    "title": "Type something then hit 'Enter' to add it to the list",
                 }
             ),
         }
