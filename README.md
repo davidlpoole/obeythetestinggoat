@@ -201,3 +201,29 @@ And edit the 3x `AuthenticateTest(TestCase)`'s in */accounts/tests/test_authenti
 
 ~~`url(r'^logout$', logout, {'next_page': '/'}, name='logout'),`~~  
 `path('logout', LogoutView.as_view(next_page='/'), name='logout'),`  
+
+## [Chapter 23: Test Isolation, and "Listening to Your Tests"](https://www.obeythetestinggoat.com/book/chapter_purist_unit_tests.html)
+
+### [A First Attempt at Using Mocks for Isolation](https://www.obeythetestinggoat.com/book/chapter_purist_unit_tests.html#_a_first_attempt_at_using_mocks_for_isolation)
+Pretty much from the start of this chapter I got an error, due to a change in Django since version 1:  
+`TypeError: quote_from_bytes() expected bytes`
+
+I found this stackoverflow question/answer: [Mock() function gives TypeError in django2](https://stackoverflow.com/a/66799932)
+
+Which gave the solution of adding the following 2 lines into the tests
+    
+```
+returned_object = mock_form.save.return_value
+returned_object.get_absolute_url.return_value = 'fakeurl'
+```
+
+Instead of repeating that code multiple times in the tests, I extracted it into a static method:
+```
+@staticmethod
+def mock_form_save_get_absolute_url(mock_form):
+    returned_object = mock_form.save.return_value
+    returned_object.get_absolute_url.return_value = "fakeurl"
+```
+
+and called it like this:  
+`self.mock_form_save_get_absolute_url(mock_form)`
