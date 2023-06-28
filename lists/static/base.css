@@ -1,45 +1,147 @@
-body {
+html {
+    /*height: 90vh;*/
+    /*padding: 1vh;*/
+    /*height:100%;*/
     font: 20px "Fira Code";
     font-weight: 300;
     word-break: keep-all;
     font-feature-settings: "calt" 1; /* Enable ligatures for IE 10+, Edge */
     text-rendering: optimizeLegibility; /* Force ligatures for Webkit, Blink, Gecko */
-    /*font-family: monospace;*/
-    /*font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum";*/
-    /*margin: 3em*/
-    margin-left: 2vw;
-    margin-right: 2vw;
-    min-height: 96vh;
-    min-width: 96vw;
+}
+
+body {
+    /*min-height: 96vh;*/
+    /*min-width: 96vw;*/
+    /*height: 98%;*/
     display: flex;
     flex-direction: column;
+    min-height: 97vh;
+    padding: 6px;
+    /*margin: 10px;*/
+    /*justify-content: space-between;*/
+}
 
+nav {
+    padding: 12px;
+    border-bottom: 1px dotted hsl(0deg 0% 0% / 0.2);
+}
+
+ul.nav {
+    align-items: baseline;
+    display: flex;
+    gap: 12px;
+}
+
+li.nav {
+    display: inline;
+}
+
+li.user {
+    display: flex;
+    flex-direction: row;
 }
 
 .header {
-    /*color: #860303;*/
-    font-size: 24px;
-    /*font-weight: 600;*/
-    /*margin-bottom: 0.5em;*/
-    margin-top: 0.5em;
-    /*letter-spacing: -3px;*/
-
+    margin-right: auto;
 }
 
-.footer {
-    margin-top: auto;
-    padding-top: 0.5em;
-    font-style: italic;
-    font-size: 15px;
+.main {
+    /*padding: 12px;*/
+    /*flex-grow: 1;*/
 }
 
-.f_item {
-    display: inline-block;
+
+.header {
+    /*font-size: 24px;*/
+    color: #640000;
+}
+
+.user {
+    font-size: 16px;
+}
+
+.login-form {
+    display: none;
+}
+
+.logged-in {
 }
 
 .help-block {
-    color: #c33;
-    margin-bottom: 0.5em;
+    /*color: #c33;*/
+    margin-top: 0.5em;
+    font-style: italic;
+}
+
+.messages {
+    /*color: #c33;*/
+    font-style: italic;
+}
+
+.form {
+    padding: 12px;
+}
+
+.table {
+    padding: 0 12px 0 12px;
+}
+
+.extra-content {
+    padding: 12px
+}
+
+input[type="text"] {
+    font: inherit;
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    border: 0;
+    /*width: 100%;*/
+    /*margin: 0.2em auto 0.2em 0;*/
+    /*border: 1px dotted;*/
+    /*width: 95%;*/
+    /*font-size: 20px;*/
+    /*margin-top: 0.5em;*/
+    /*margin-bottom: 0.5em;*/
+    /*color: #c33;*/
+    /*height: 30px;*/
+    /*padding-left: 10px;*/
+    /*border-bottom-style: dotted;*/
+    /*border-bottom-width: 1px;*/
+}
+
+/*input[type=text]:focus {*/
+/*    !*outline: none;*!*/
+/*    !*border: 1px solid;*!*/
+/*    !*border: 0px;*!*/
+/*    !*color: #c33;*!*/
+/*}*/
+
+input[type="text"]:placeholder-shown {
+    font-style: italic;
+    /*text-decoration-line: underline;*/
+    /*text-decoration-style: dashed;*/
+}
+
+footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*margin-top: auto;*/
+    /*padding-top: 0.5em;*/
+    /*font-style: italic;*/
+    font-size: 15px;
+    border-top: 1px dotted hsl(0deg 0% 0% / 0.2);
+}
+
+.f_right {
+    display: flex;
+    flex-direction: row;
+}
+
+.f_item {
+    padding: 10px;
 }
 
 i {
@@ -53,15 +155,21 @@ ul {
     margin: 0
 }
 
-table {
-    width: 95%;
+ul.list_links {
+    padding-top: 12px;
+}
+
+li.list_link {
+    margin-left: 12px;
+    list-style: circle;
+}
+
+tbody {
 }
 
 td {
     text-align: left;
-    border-bottom-color: rgba(204, 51, 51, 0.5);
-    border-bottom-style: dotted;
-    border-bottom-width: thin;
+    /*border-bottom: 1px dotted hsl(0deg 0% 0% / 0.2);*/
     /*font-size: 4vw;*/
 }
 
@@ -76,30 +184,6 @@ td.item_text {
 
 /*margin: 10px 15px 20px 5px;*/
 /*margin: top right bottom left;*/
-
-input[type="text"] {
-    display: block;
-    margin: 0.5em auto 0.5em 0;
-    font: inherit;
-    width: 95%;
-    /*font-size: 20px;*/
-    /*margin-top: 0.5em;*/
-    /*margin-bottom: 0.5em;*/
-    padding: 0.3em;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px dotted;
-    /*color: #c33;*/
-    /*height: 30px;*/
-    /*padding-left: 10px;*/
-}
-
-input[type=text]:focus {
-    outline: none;
-    border: 1px solid;
-    /*color: #c33;*/
-}
 
 a {
     color: #c33;

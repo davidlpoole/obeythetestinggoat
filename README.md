@@ -1,8 +1,9 @@
 # Obeying The Testing Goat in 2023... with the latest versions of Python (3.11), Django (4.2), and Selenium (4.9)
 
-## Live preview
+## Live previews
 
-The main branch is available to view at: http://davidpoole.pythonanywhere.com/
+- Latest stable version (main branch) http://davidlpoole.pythonanywhere.com/
+- Latest development version (latest branch) http://davidpoole.pythonanywhere.com/
 
 ## About this project
 
@@ -177,3 +178,52 @@ To download the QUnit and jQuery files:
 `curl -o qunit-2.19.4.css 'https://code.jquery.com/qunit/qunit-2.19.4.css'`  
 `curl -o qunit-2.19.4.js 'https://code.jquery.com/qunit/qunit-2.19.4.js'`  
 `curl -o jquery-3.7.0.min.js 'https://code.jquery.com/jquery-3.7.0.min.js'`
+
+## [Chapter 19: Using Mocks to Test External Dependencies or Reduce Duplication](https://www.obeythetestinggoat.com/book/chapter_mocking.html)
+
+### [De-spiking Our Custom Authentication Backend](https://www.obeythetestinggoat.com/book/chapter_mocking.html#_de_spiking_our_custom_authentication_backend)
+
+Additional parameter required in `authenticate()`
+
+*/accounts/authenticate.py:*  
+~~`def authenticate(self, uid):`~~  
+`def authenticate(self, request, uid):`
+
+And edit the 3x `AuthenticateTest(TestCase)`'s in */accounts/tests/test_authentication.py:*  
+~~`PasswordlessAuthenticationBackend().authenticate('no-such-token')`~~  
+`PasswordlessAuthenticationBackend().authenticate(request=None, uid='no-such-token')`
+
+### [Finishing Off Our FT, Testing Logout](https://www.obeythetestinggoat.com/book/chapter_mocking.html#_finishing_off_our_ft_testing_logout)
+
+*accounts/urls.py:*  
+~~`from django.contrib.auth.views import logout`~~  
+`from django.contrib.auth.views import LogoutView`
+
+~~`url(r'^logout$', logout, {'next_page': '/'}, name='logout'),`~~  
+`path('logout', LogoutView.as_view(next_page='/'), name='logout'),`  
+
+## [Chapter 23: Test Isolation, and "Listening to Your Tests"](https://www.obeythetestinggoat.com/book/chapter_purist_unit_tests.html)
+
+### [A First Attempt at Using Mocks for Isolation](https://www.obeythetestinggoat.com/book/chapter_purist_unit_tests.html#_a_first_attempt_at_using_mocks_for_isolation)
+Pretty much from the start of this chapter I got an error, due to a change in Django since version 1:  
+`TypeError: quote_from_bytes() expected bytes`
+
+I found this stackoverflow question/answer: [Mock() function gives TypeError in django2](https://stackoverflow.com/a/66799932)
+
+Which gave the solution of adding the following 2 lines into the tests
+    
+```
+returned_object = mock_form.save.return_value
+returned_object.get_absolute_url.return_value = 'fakeurl'
+```
+
+Instead of repeating that code multiple times in the tests, I extracted it into a static method:
+```
+@staticmethod
+def mock_form_save_get_absolute_url(mock_form):
+    returned_object = mock_form.save.return_value
+    returned_object.get_absolute_url.return_value = "fakeurl"
+```
+
+and called it like this:  
+`self.mock_form_save_get_absolute_url(mock_form)`

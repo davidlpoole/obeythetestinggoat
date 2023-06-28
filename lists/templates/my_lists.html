@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header_text %}
+    My Lists
+{% endblock %}
+
+{% block list_form %}{% endblock %}
+
+{% block extra_content %}
+    <div class="extra-content">
+        <div>{{ owner.email }}'s lists:</div>
+        <ul class="list_links">
+            {% for list in owner.list_set.all %}
+                <li class="list_link"><a href="{{ list.get_absolute_url }}" title='Go to the list named "{{ list.name }}"'>{{ list.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
