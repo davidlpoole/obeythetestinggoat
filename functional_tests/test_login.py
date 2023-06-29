@@ -29,8 +29,8 @@ class LoginTest(FunctionalTest):
         # She checks her email and finds a message
         body = self.wait_for_email(test_email, self.subject)
         # It has a URL link in it
-        self.assertIn("Use this link to log in", body)
-        url_search = re.search(r"http://.+/.+$", body)
+        self.assertIn("Here's your personal login link:", body)
+        url_search = re.search(r"http://.+/.+$", body, re.M)
         if not url_search:
             self.fail(f"Could not find url in email body:\n{body}")
         url = url_search.group(0)
