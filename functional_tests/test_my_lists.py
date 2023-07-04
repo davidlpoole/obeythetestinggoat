@@ -12,23 +12,6 @@ User = get_user_model()
 
 
 class MyListTest(FunctionalTest):
-    def quick_login(self):
-        self.browser.get(self.live_server_url)
-        self.browser.find_element(by="id", value="id_login_button").click()
-        self.browser.find_element("name", "email").send_keys(self.test_email)
-        self.browser.find_element("name", "email").send_keys(Keys.ENTER)
-        self.wait_for(
-            lambda: self.assertIn(
-                "Check your email", self.browser.find_element("tag name", "body").text
-            )
-        )
-        body = self.wait_for_email(self.test_email, self.subject)
-        url_search = re.search(r"http://.+/.+$", body)
-        if not url_search:
-            self.fail(f"Could not find url in email body:\n{body}")
-        url = url_search.group(0)
-        self.browser.get(url)
-
     def test_logged_in_users_lists_are_saved_as_my_lists(self):
         # Edith is a logged-in user
         self.browser.get(self.live_server_url)
