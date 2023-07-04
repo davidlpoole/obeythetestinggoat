@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header_text %}
-    Start a new To-Do list
+    Start a new {% if user.email %}personal{% else %}<span title="Login to create a personal list 👉">public</span>{% endif %} To-Do list
 {% endblock %}
 
 {% block form_action %}

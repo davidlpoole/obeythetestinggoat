@@ -33,3 +33,8 @@ def view_list(request, list_id):
 def my_lists(request, email):
     owner = User.objects.get(email=email)
     return render(request, "my_lists.html", {"owner": owner})
+
+
+def public_lists(request):
+    lists = List.objects.filter(owner=None)
+    return render(request, "public_lists.html", {"lists": lists})
