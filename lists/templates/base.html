@@ -25,8 +25,7 @@
                         <div class="already-logged-in">
                             <ul>
                                 <li class="nav"><a href="{% url 'my_lists' user.email %}" title="View your To-Do lists">Personal</a></li>
-                                <li class="nav">{{ user.email }}</li>
-                                <li class="nav"><a href="{% url 'logout' %}" title="Logout and go to the home page">Logout</a></li>
+                                <li class="nav"><a href="{% url 'logout' %}" title="Logout and go to the home page">Logout ({{ user.email }})</a></li>
                             </ul>
                         </div>
                     {% else %}
@@ -44,7 +43,7 @@
 
                     {% endif %}
                     {% if not messages and not user.email %}
-                        <div id="id_login_button"><a href="#" title="Login so you can save and come back to your lists">Login</a></div>
+                        <div id="id_login_button"><a href="#" title="Login so you can save and come back to your lists">Personal</a></div>
                     {% elif messages %}
                         <div class="messages">
                             {% for message in messages %}

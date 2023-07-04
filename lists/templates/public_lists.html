@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block header_text %}
-    My Lists
+    Public Lists
 {% endblock %}
 
 {% block list_form %}{% endblock %}
 
 {% block extra_content %}
     <div class="extra-content">
-        <div>Public lists:</div>
+{#        <div>Public lists:</div>#}
         <ul class="list_links">
             {% for list in lists.all %}
                 <li class="list_link"><a href="{{ list.get_absolute_url }}" title='Go to the list named "{{ list.name }}"'>{{ list.name }}</a></li>
