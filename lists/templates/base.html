@@ -17,14 +17,15 @@
             <li class="brand"><a href="/" title="Go to the homepage to start a new To-Do list ">Superlists</a></li>
             <li>🤌</li>
             <li class="header" id="id_header">{% block header_text %}{% endblock %}</li>
-            <li class="user">
+            <li class="nav-link">View all lists:</li>
+            <li class="nav-link"><a href="{% url 'public_lists' %}">Public</a></li>
+            <li class="nav-link">
                 <div class="user">
                     {% if user.email %}
                         <div class="already-logged-in">
                             <ul>
-                                <li class="nav"><a href="{% url 'my_lists' user.email %}" title="View your To-Do lists">My lists</a></li>
-                                <li class="nav">{{ user.email }}</li>
-                                <li class="nav"><a href="{% url 'logout' %}" title="Logout and go to the home page">Logout</a></li>
+                                <li class="nav"><a href="{% url 'my_lists' user.email %}" title="View your To-Do lists">Personal</a></li>
+                                <li class="nav"><a href="{% url 'logout' %}" title="Logout and go to the home page">Logout ({{ user.email }})</a></li>
                             </ul>
                         </div>
                     {% else %}
@@ -42,7 +43,7 @@
 
                     {% endif %}
                     {% if not messages and not user.email %}
-                        <div id="id_login_button"><a href="#" title="Login so you can save and come back to your lists">Login</a></div>
+                        <div id="id_login_button"><a href="#" title="Login so you can save and come back to your lists">Personal</a></div>
                     {% elif messages %}
                         <div class="messages">
                             {% for message in messages %}
